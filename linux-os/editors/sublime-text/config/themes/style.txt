@@ -1,0 +1,19 @@
+In Preferences -> Settings -> User panel (right)
+
+{
+    "color_scheme": "Packages/Color Scheme - Default/Mariana.sublime-color-scheme",
+    "font_size": 20,
+    "ignored_packages":
+    [
+        "Vintage"
+    ],
+    "scroll_past_end": true,
+    "sidebar_no_icon": false,
+    "theme": "Default.sublime-theme",
+    "translate_tabs_to_spaces": true
+}
+
+
+Theme editor
+------------
+http://tmtheme-editor.herokuapp.com/#!/editor/theme/Eiffel

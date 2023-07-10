@@ -1,0 +1,26 @@
+This file contains a quick summary of important links for the vim text editor. 
+It contains among other things setting up vim as an IDE, colorschemes, plugins etc.
+
+SETUP
+https://opensource.com/article/19/11/vim-plugins
+https://www.youtube.com/watch?v=cTBgtN-s2Zw&t=621s
+https://www.youtube.com/watch?v=ZW6rttyD9vA  # Install colorschemes
+
+IDE
+https://idorobotics.com/2018/04/01/setting-up-vim-for-c-development/
+https://www.quora.com/How-to-build-vim-editor-in-Linux-into-an-effective-C++-programming-IDE
+https://github.com/JBakamovic/yavide#installation
+
+PLUGINS
+https://mkaz.blog/working-with-vim/plugins/#:~:text=Remove%20a%20Plugin,delete%20the%20directory%2C%20type%20Y%20.
+https://opensource.com/article/20/2/how-install-vim-plugins
+https://opensource.com/article/19/11/vim-plugins
+https://medium.com/@huntie/10-essential-vim-plugins-for-2018-39957190b7a9
+
+TROUBLESHOOTING
+https://vi.stackexchange.com/questions/12892/e488-trailing-characters-error-after-attempting-to-install-vim-hybrid
+https://stackoverflow.com/questions/10259485/clang-complete-in-vim
+https://stackoverflow.com/questions/16362402/save-file-to-specific-folder-with-curl-command
+
+HOW TO CONVERT TXT TO PDF ETC.
+https://www.youtube.com/watch?v=w8EKH_fjmXA

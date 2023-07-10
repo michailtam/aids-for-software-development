@@ -1,0 +1,4 @@
+# This file contains the configuration for the gvim application
+
+ERROR: Failed to load module “canberra-gtk-module” … but already installed
+sudo apt install libcanberra-gtk-module libcanberra-gtk3-module

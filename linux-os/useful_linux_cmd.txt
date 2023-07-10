@@ -1,0 +1,48 @@
+(1) How to find files or directories of specific names]
+Example: Searching for folders (or files) with the name 'pass' from the current folder
+$ find . -type d -name 'pass' # This is for folder search
+$ find . #type f -name 'pass' # This is for file search
+
+
+(2) How to searching for patterns (i.e. content) in files
+For details refer to:
+https://stackoverflow.com/questions/16956810/how-can-i-find-all-files-containing-specific-text-string-on-linux#:~:text=grep%20%2Drnw%20%27/path/to/somewhere/%27%20%2De%20%27pattern%27
+Example: Searching for the pattern 'kind' in from the current directory
+
+$ grep -rnw '/path/to/somewhere/' -e 'pattern'
+-r or -R is recursive,
+-n is line number, and
+-w stands for match the whole word.
+-l (lower-case L) can be added to just give the file name of matching files.
+-e is the pattern used during the search
+Along with these, --exclude, --include, --exclude-dir flags could be used for efficient searching:
+
+
+(3) How to search for a specific file extensions
+Example: Searching for the file extensions .c and .h from the current path
+$ grep --include=\*.{c,h} -rnw . -e "pattern"
+
+NOTE: For directories it's possible to exclude one or more directories using the --exclude-dir parameter. For example, this will exclude the dirs dir1/, dir2/ and all of them matching *.dst/:
+
+grep --exclude-dir={dir1,dir2,*.dst} -rnw '/path/to/somewhere/' -e "pattern"
+This works very well for me, to achieve almost the same purpose like yours.
+
+For more options check man grep.
+
+
+(4) How to get the file size of the current folder and subfolders]
+--------------------------------------------------------
+$ du -h . | tail -1 
+
+
+(5) How to list OpenGL properties
+------------------------
+$ glxinfo | grep OpenGL
+
+
+(6) How to zip multiple files by splitting them into a specific size
+https://linuxconfig.org/how-to-split-zip-archive-into-multiple-blocks-of-a-specific-size
+$ zip -r -s 5m myfiles.zip example-dir/
+$ zip -F myfiles.zip --out single-archive.zip
+unzip single-archive.zip
+

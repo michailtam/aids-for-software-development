@@ -1,0 +1,15 @@
+__pycache__
+.ipynb_checkpoints
+
+notebook
+.vscode/
+Logs/
+
+# Exclude specific ROS1 folders
+**/devel
+**/build
+
+# Exclude specific ROS2 folders
+**/install
+**/build
+**/logs

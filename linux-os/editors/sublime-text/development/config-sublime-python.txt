@@ -1,0 +1,89 @@
+1. Install sublime text 
+
+2. Install package manager: Tools -> Command Palete (or Ctrl+Shift+P) -> type Install Packet Manager
+
+3. Install material theme: Ctrl+Shift+P -> type Install Package -> type Material Theme
+
+4. Setup user preferences: Preferences -> Settings -> left: default, right: user settings
+My settings:
+
+{
+    "color_scheme": "Packages/Color Scheme - Default/Mariana.sublime-color-scheme",
+    "font_size": 20,
+    "ignored_packages":
+    [
+        "Vintage"
+    ],
+    "scroll_past_end": true,
+    "sidebar_no_icon": false,
+    "theme": "Default.sublime-theme",
+    "translate_tabs_to_spaces": true
+}
+
+IMPORTANT: The default settings get updated while the package updates. The user settings remain during updates
+
+5. Install bracket: Packet Manager -> Install Package -> bracket highlighter (shows open and closed brackets)
+
+6. Install sidebar enhancements: ... -> sidebar enhancements (extends the sidebar functionalities)
+
+7. Install Anaconda (for Python): ... -> Anaconda
+Setup:
+    Preferences -> Package Settings -> Anaconda -> Settings - User -> insert the following:
+
+{
+    "auto_formatting": true,
+    "autoformat_ignore":
+    [
+    ],
+    "pep8_ignore":
+    [
+        "E501"
+    ],
+    "anaconda_linter_underlines": false,
+    "anaconda_linter_mark_style": "none",
+    "display_signatures": false,
+    "disable_anaconda_completion": true,
+    "python_interpreter": "/usr/local/bin/python3"    THIS HAS TO BE CHANGED ACCORDING TO THE PYTHON PATH AND OS !!!
+}
+
+NOTE: The right build system has to be setup for the python version used on the system 
+(https://www.youtube.com/watch?v=xqcTfplzr7c)
+
+
+IMPORTANT: To remove a package type in package manager remove package -> choose the package to remove
+
+8. Install buildview: ... -> buildview (moves the output window to the right)
+
+
+
+Setup a Python Virtual Environment for Sublime
+----------------------------------------------
+1. Create new build system: Tools -> Build System -> New Build System -> insert the following:
+
+{
+    "cmd": ["E:/Development/Python/Hands On Machine Learning/ml/my_env/Scripts/python.exe", "$file"],
+    "selector": "source.python",
+    "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)"
+}
+
+2. Save the file like Python-3.7 without changing the .sublime-build part (e.g. Python-3.7-VENV.sublime-build)
+
+Video:
+https://www.youtube.com/watch?time_continue=325&v=_UU37Z6T7v4&feature=emb_logo
+
+
+Customize Color Sheme
+---------------------
+http://tmtheme-editor.herokuapp.com/#!/editor/theme/3024%20(Day)
+
+
+Install a Python Debugger for Sublime
+-------------------------------------
+1. Go to the package control page and search for python debugger for Documentation
+
+2. Install Python Debugger: ... -> python debugger
+
+
+Install custom terminal for sublime
+-----------------------------------
+Terminus - https://www.youtube.com/watch?v=_fjCMYX4Abs

@@ -1,0 +1,83 @@
+{
+    "workbench.colorTheme": "Visual Studio Light",
+    "editor.fontSize": 22,
+    "explorer.confirmDelete": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.wordWrap": "off",
+    "editor.formatOnSave": false,
+    "editor.unicodeHighlight.allowedLocales": {
+        "es": true
+    },
+    "python.defaultInterpreterPath": "/media/mikelap/DATA/Development/python/virtualenvs/ai-place/bin/python3.9",
+    "python.venvPath": "/media/mikelap/DATA/Development/python/virtualenvs/ai-place/",
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "terminal.integrated.cwd": "/media/mikelap/DATA/GitRepos/artificial-intelligence/",
+    "files.autoSave": "afterDelay",
+    "window.zoomLevel": -1,
+
+    "todohighlight.isEnable": true,
+    "todohighlight.include": [
+        "**/*.js",
+        "**/*.jsx",
+        "**/*.ts",
+        "**/*.tsx",
+        "**/*.html",
+        "**/*.php",
+        "**/*.css",
+        "**/*.cpp",
+        "**/*.hpp",
+        "**/*.c",
+        "**/*.h",
+        "**/*.py"
+    ],
+    "todohighlight.exclude": [
+        "**/node_modules/**",
+        "**/bower_components/**",
+        "**/dist/**",
+        "**/build/**",
+        "**/.vscode/**",
+        "**/.github/**",
+        "**/.gitignore",
+        "**/_output/**",
+        "**/*.min.*",
+        "**/*.map",
+        "**/.next/**",
+        "**/__pycache__"
+    ],
+    "todohighlight.defaultStyle": {
+        "color": "red",
+        "backgroundColor": "#ffab00",
+        "overviewRulerColor": "#ffab00",
+        "cursor": "pointer",
+        "border": "1px solid #eee",
+        "borderRadius": "2px",
+        "isWholeLine": false, 
+    },
+    "todohighlight.keywords": [
+        {
+            "text": "NOTE:",
+            "color": "#0000FF",
+            "border": "1px solid blue",
+            "backgroundColor": "#89CFF0",
+            "overviewRulerColor": "grey",
+            "borderRadius": 100
+        },
+        {
+            "text": "FIXME:",
+            "color": "white",
+            "border": "1px solid #7C3030",
+            "backgroundColor": "#E30B5C",
+            "overviewRulerColor": "grey"
+        },
+        {
+            "text": "TODO:",
+            "color": "#454B1B",
+            "border": "1px solid green",
+            "borderRadius": "2px", //NOTE: using borderRadius along with `border` or you will see nothing change
+            "backgroundColor": "#90EE90",
+            "overviewRulerColor": "grey"
+        }
+    ],
+}

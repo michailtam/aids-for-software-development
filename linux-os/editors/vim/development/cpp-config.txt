@@ -1,0 +1,38 @@
+This file contains instructions of how to setup vim as a c++ IDE. You can find information of different setup methods here:
+https://idorobotics.com/2018/04/01/setting-up-vim-for-c-development/
+
+(1) STEP
+At first you have to install a plugin-manager using one of the following tutorials:
+https://www.youtube.com/watch?v=2prsFrKwbOo&t=313s
+https://opensource.com/article/20/2/how-install-vim-plugins
+
+a) NERDTree - Navigation (Gitrepo: preservim/nerdtree)
+IMPORTANT: If there is an error saying: File "/usr/lib/python2.7/dist-packages/pip/basecommand.py", line 215, in main ... then type:
+sudo python -m pip install --upgrade --force setuptools
+sudo python -m pip install --upgrade --force pip
+This should fix the problem.
+
+b) YouCompleteMe - Code Completion for C++ (Gitrepo: ycm-core/YouCompleteMe)
+IMPORTANT: After completing the installation change in the directory ~.vim/plugged/YouCompleteMe and run: sudo python3 install.py
+source: https://stackoverflow.com/questions/47667119/ycm-error-the-ycmd-server-shut-down-restart-wit-the-instructions-in-the-docu
+
+c) Syntastic - Syntax checking for C++ (Gitrepo: vim-syntastic/syntastic) 
+
+d) Clewn - Debugging for C++ (Gitrepo: ...)
+source: http://clewn.sourceforge.net/install.html#clewn
+
+e) Tagbar - Tags for C++ code (Gitrepo: majutsushi/tagbar)
+
+f) Yavide - An almost vim IDE for C++ (Gitrepo: JBakamovic/yavide)
+
+(2) STEP
+a) Create a directory (project directory) and paste all the filess depending to the project inside.
+IMPORTANT: Every subsequent c++ file has to be created or copied to this folder.
+
+b) In vim you can open all files at once in tabs using the :tab all command.
+
+c) To compile the project containing all the files, you have to create a cmake file and execute it.
+Source: https://www.youtube.com/watch?v=elycr5wi9_g&t=183s
+
+
+

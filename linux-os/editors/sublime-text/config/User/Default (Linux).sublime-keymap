@@ -1,0 +1,10 @@
+[
+    { "keys": ["ctrl+#"], "command": "toggle_comment", "args": { "block": false } },
+    { "keys": ["ctrl+´"], "command": "goto_definition" },
+    { "keys": ["ctrl+t"], "command": "terminus_open", 
+        "args": { 
+            "config_name": "Default", 
+            "cwd": "${file_path:${folder}}"
+        } 
+    }
+]

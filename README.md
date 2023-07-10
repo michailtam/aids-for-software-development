@@ -1,0 +1,2 @@
+# Aids for software development
+This repository contains a variety of adis related to different applications and use cases. Some of them include Git, VS Code, Docker, and regular expressions that are used in everyday software development. There are also guides to configure various editors on Windows and Linux operating systems. The repository is constantly being expanded and is mainly used to take care of things that people keep forgetting or are looking for a solution for which is time consuming.

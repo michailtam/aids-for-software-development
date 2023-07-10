@@ -1,0 +1,181 @@
+################################################## INITIAL STEPS ##################################################  
+ 
+STEP 1. INSTALL GIT: apt-get install git
+
+STEP 2: Setting up user data
+git config --global user.name "Username of github or bitbucket"
+git config --global user.email "Email of github or bitbucket"
+IMPORTANT: The above data are listed in .gitconfig which is located at the
+home directory i.e. home/mike. They can be seen on terminal using:
+git config --list
+
+STEP 3: Cloning the remote git repo
+IMPORTANT: If nothing else specified, the repo gets downloaded (cloned) in the current directory
+Example: git clone https://user@github.com/repo_name/repodata.git
+NOTE: If a project exists initialize the folder with: git init
+
+STEP 4: Git status
+Checks the git status: git status. This should be the output:
+On branch master
+Your branch is up to date with 'origin/master'.
+<and a list of files to commit>
+
+STEP 5: Add files to the local repo to commit:
+git add <file>  // If only one file gets added
+or
+git add .    // this will add all files (except .gitignore)
+
+STEP 6: Commit 
+git commit -m "<commit message>"
+IMPORTANT:	The files are still not on the web repo. To achieve that you have to push the files:
+git push -u origin master
+
+BASIC OPERATIONS
+1. git log		->		shows the history of the commits (example: git log -2 shows only the last two)
+2. git push		->		pushes files to GitHub (example: git push -u origin master 
+						which is the name of the remote i.e. GitHub)
+3. git pull		->		pulls files from GitHub (example: git pull origin master)
+4. git remote 	->		git remote -v (shows the remote url)
+5. git status	->		shows the status of the git repo (if it exists)
+6. git commit 	->		commits files to the staging area (example: git commit -a adds all files to the
+						staging area, git commit -a -m adds them with a message)
+7. git add 		->		adds specific files to the staging area (example: git add . adds all files)
+8. git remote	->		adds the remote place. This is needed if we have not created the git repo online,
+						but worked localy with git init	(example: git remote add origin <url of git repo>)
+
+################################################## OTHER OPERATIONS ##################################################  
+
+(1) Pulls a specific commit from the repo
+a. git log -> choose the desired commit (has string example: 3e938848ecccd39c84e842ef657127ab4fbdf071 or online) 
+a.a List the last commit git log-remote <path to url>
+b.b copy the hash SHA-1 string from the commits url of online repo
+c. git fetch origin <SHA-1>   if an error occurs related to uncommited changes, then you
+   go to section DROP COMMIT (BEFORE GIT PUSH)
+d. git checkout FETCH_HEAD 
+
+(2) Pulls a specific commit from a remote branch
+1. git clone <remote url> -b <branch name>
+2. cd <repo name>
+3. git checkout <COMMIT HASH e.g. f7255cf2cc6b5116e50840816d70d21e7cc039bb>
+IMPORTANT: avoid using reset
+
+(3) Drops a commit (before git push)
+1. git stash save --keep-index
+2. git stash drop -> if the files are not needed anymore
+To Get the stashed files: git stash pop OR by index git stash apply --index
+
+(4) Another way to stash (IMPORTANT: Carries over from branch to branch)
+git stash save "message"
+git stash list // lists all stashed contents
+git stash pop // pops the first position (stack)
+git stash drop stash@{1} // drops the stash of the index 1
+git stash clear // removes all stashes (BE CAREFUL)
+
+(5) Untrack added files to .gitignore which are still shown:
+1. Commit any outstanding code changes
+2. git rm -r --cached .
+3. git add .
+4. git commit -am ".gitignore is now working"
+
+(6) Reverts changes to modified file: git reset --hard
+
+(7) Removes all untracked files and directories (`-f` is `force`, `-d` is `remove directories`)
+git clean -fd
+
+(8) Pushes an existing local repo to the remote repo
+...Before init repo etc.
+1. git remote add origin https://github.com/username/project_name.git
+2. git push -u origin master
+Example:
+git remote add origin https://user@github.com.org/user/custom-python-libs.git
+git push -u origin master
+
+(9) Updates a remote url: git remote set-url origin <new remote url>
+Example:
+git remote set-url origin https://git-repo/new-repository.git
+
+(10) Get help: git help operation -> Example: git help ignore
+
+(11) Undo added file
+git reset or for specific files
+git reset <file_name>
+
+(12) Fixes a detached head
+Step 1. Create a branch of <name> by typing: git branch <name>
+Step 2. Switch over to your new branch by checking it out: git checkout <name>
+Step 3. Point the master pointer to the <name> branch pointer (the-f means force): git branch -f master <name>
+Step 4. Switch to the master branch git checkout master
+Step 5. Now delete <name> branch: git branch -d <name>
+Step 6. Push the new changes to the remote repository: git push origin master
+
+(13) How to untrack specific files or folders
+git rm --cached .idea/workspace.xml -> Untracks a file
+git rm --cached .idea/ -> Untracks a folder
+
+(14) How to switch remotely to another branch
+git checkout master (e.g. if the previous branch was main not it gets master)
+
+(15) Duplicate a remote repository
+git clone --bare https://github.com/exampleuser/old-repository.git
+cd old-repository.git
+git push --mirror https://github.com/exampleuser/new-repository.git
+cd ..
+rm -rf old-repository.git
+
+(16) Show information about a remote repository 
+git remote show origin
+
+(17) Rename a branch name
+git branch -m master default (from master to default)
+
+(18) Delete a branch (not set to default)
+git push origin --delete master (deletes the remote master branch)
+
+(19) Clone from a specific branch
+git clone -b <branch-name> git url
+Example: git clone -b kinetic-devel https://github.com/introlab/rtabmap_ros.git
+
+(20) How to fix “modified content, untracked content”
+a) git rm -rf --cached myuntrackedfolder (This tells git to forget about it since it was being tracked formally).
+
+NOTE FOR GITHUB - Using Tokens
+https://www.youtube.com/watch?v=kHkQnuYzwoo
+b) git add myuntrackedfolder 
+
+(21) Adding an embedded folder to the staging area and then push it to the repo:
+1. Go into the embedded folder where changes have been done
+2. Do a normal add/commit
+3. Return to the toplevel and do add the folder as:
+   git add <folder-name>
+4. Do normal git commit and push to the repo
+BASED ON: https://stackoverflow.com/questions/24167676/cant-stage-folder-for-commit-with-git-add-or-git-add-u
+
+(22) Change a branch name locally and remotely (e.g. on bitbucket old_name -> new_name):
+https://www.youtube.com/watch?v=znaLboom6BA
+https://www.w3docs.com/snippets/git/how-to-rename-git-local-and-remote-branches.html
+1. switch to the master branch
+2. git branch -m <old_name> <new_name>
+3. git branch -a -> should show the new local branch name
+Note: Change the remote name also:
+3. git push origin :<old_name> <new_name>
+4. now refresh on the remote site and the new branch name should appear.
+
+(23) How to clone a specific file or folder
+There are two ways to achieve this, one is by using svn (easier way) and the other via git:
+https://stackoverflow.com/questions/18900774/equivalent-of-svn-checkout-for-git
+
+For using svn refer to:
+https://stackoverflow.com/questions/7106012/download-a-single-folder-or-directory-from-a-github-repo
+
+(23) How to delete all commit history (tested in GitHub)
+Source: https://stackoverflow.com/questions/13716658/how-to-delete-all-commit-history-in-github
+Deleting the .git folder may cause problems in your git repository. If you want to delete all your commit history but keep the code in its current state, it is very safe to do it as in the following:
+
+Checkout:          git checkout --orphan latest_branch
+Add all the files: git add -A
+Commit changes:    git commit -am "commit message"
+Delete the branch: git branch -D main
+Rename the current branch to main: git branch -m main
+Force update repo: git push -f origin main
+
+PS: this will not keep your old commit history around

@@ -1,0 +1,5 @@
+{
+    "cmd": ["E:/Development/Python/Hands On Machine Learning/ml/my_env/Scripts/python.exe", "$file"],
+    "selector": "source.python",
+    "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)"
+}

@@ -1,0 +1,21 @@
+{
+    // a list of available shells to execute
+    "shell_configs": [
+        {
+            "name": "Zsh",
+            "cmd": ["zsh", "-i"],
+            "env": {},
+            "enable": true,
+            "platforms": ["linux", "osx"]
+        }
+    ],
+    "256color": true,
+    "unix_term": "xterm-256color",
+    "theme": "user",
+    "user_theme_colors": {
+        "background": "#2b303b",
+        "selection": "#4f5b66",
+        "00": "#4c4c4c",
+        "04": "#4682b4",
+    }
+}

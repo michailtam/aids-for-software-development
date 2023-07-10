@@ -1,0 +1,18 @@
+### How to use a custom colorscheme in vim or nvim ###
+------------------------------------------------------
+There are plenty of sites and github repos that provide
+custom colorschemes like the following:
+https://vimawesome.com/plugin/awesome-vim-colorschemes
+https://github.com/rafi/awesome-vim-colorschemes
+
+Instructions:
+1. To use a colorscheme you have to install it first via e.g. vim-plug
+2. Watch this video: https://www.youtube.com/watch?v=JWReY93Vl6g&list=LL&index=8
+to setup vim properly. This video explains very precise what you have to do.
+3. If you want to setup vim like VSCode please follow this video:
+https://www.youtube.com/watch?v=gnupOrSEikQ&t=166s
+
+Other useful tutorials of how to change colorschemes are:
+https://linuxhint.com/change-vim-color-scheme/
+https://linuxhandbook.com/vim-color-schemes/
+https://phoenixnap.com/kb/vim-color-schemes

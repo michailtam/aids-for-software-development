@@ -1,0 +1,121 @@
+COMPILE AND EXECUTE C/C++ CODE IN LINUX USING VS CODE (ONE OR MULTIPLE FILES)
+
+// GENERAL SETUP
+SOURCE: https://www.youtube.com/watch?v=DIw02CaEusY&t=1230s
+
+1. Install VS Code
+2. Set the workspace directory in the settings of vs-code (Ctrl-Shift-P -> settings 
+-> Open Workspace Settings (JSON) -> example: "path": "home/user/Projects/hello-world")
+3. Add C/C++ extension in VS Code
+4. Create a main.cpp in the project/src folder
+5. Create or edit (dependent on the error message) an include path: c_cpp_properties.json,
+which will contain all the settings of the C/C++ compilation properties.
+NOTE: In addition a .vscode folder gets created which will contain the overall execution settings.
+
+5.1 The c_cpp_properties.json should contain the following content:
+"configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/usr/include/c++/7",
+                "/usr/include/x86_64-linux-gnu/c++/7"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/clang",
+            "cStandard": "c11",
+            "cppStandard": "c++14",
+            "intelliSenseMode": "clang-x64"
+        }
+    ],
+    "version": 4
+
+6. Add a tasks.json file as follows: Ctrl-Shift-P with the following content:
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "make",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": "$gcc"
+        }
+    ]
+}
+
+7. Compile the code with Ctrl-Shift-B which creates a binary file
+8. Run the program with ./main
+
+// ADDING DEBUG CAPABILITY
+9. In the editor hit F5 and choose C++... to create a launch.json file. Insert the following content:
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(gdb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/main",   // IMPORTANT: The name must be the same specified in the Makefile
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "build"
+        }
+    ]
+}
+
+// MULTIPLE FILE COMPILATION
+SOURCE: https://dev.to/talhabalaj/setup-visual-studio-code-for-multi-file-c-projects-1jpi
+
+10. Create the following folders in the project folder:
+10.1 include
+10.2 src
+10.3 lib
+10.4 bin
+
+11. Create a makefile in the root project directory with the following content:
+CXX       := g++
+CXX_FLAGS := -std=c++17 -ggdb
+
+BIN     := bin
+SRC     := src
+INCLUDE := include
+
+LIBRARIES   :=
+EXECUTABLE  := main
+
+
+all: $(BIN)/$(EXECUTABLE)
+
+run: clean all
+    clear
+    ./$(BIN)/$(EXECUTABLE)
+
+$(BIN)/$(EXECUTABLE): $(SRC)/*.cpp
+    $(CXX) $(CXX_FLAGS) -I$(INCLUDE) $^ -o $@ $(LIBRARIES)
+
+clean:
+    -rm $(BIN)/*
+
+12. Hit F5 to start the debug process.
+
+13. READY

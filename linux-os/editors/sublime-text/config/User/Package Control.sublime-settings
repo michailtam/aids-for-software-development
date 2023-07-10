@@ -1,0 +1,25 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"A File Icon",
+		"AdvancedNewFile",
+		"Anaconda",
+		"BracketHighlighter",
+		"C++ Classhelper",
+		"EasyClangComplete",
+		"Material Theme",
+		"Merge Windows",
+		"Package Control",
+		"Python Debugger",
+		"RawLineEdit",
+		"SideBarEnhancements",
+		"SublimeCodeIntel",
+		"SublimeLinter-clang",
+		"SublimeLinter-gcc",
+		"Terminus"
+	]
+}

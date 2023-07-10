@@ -1,0 +1,24 @@
+https://www.youtube.com/watch?v=BCY3gagHX8w
+
+1. Create the following folders in the project directory include, src, build
+2. Copy all .cpp files in the src folder and the .hpp, .h files in the include folder
+3. Change into the build folder and execute $cmake -GNinja ../ 
+
+cmake_minimum_required(VERSION 3.0)
+project(test_project
+    VERSION 0.0.1
+    DESCRIPTION "This is a test using cmake"
+    LANGUAGES CXX)
+
+# NOT RECOMMENDED: Finds the all the source files (i.e. .cpp) automatically (https://www.youtube.com/watch?v=BCY3gagHX8w)
+# file(GLOB_RECURSE_SRC_FILES src/*.cpp)
+# add_executable(main_binary main_astar.cpp ${SRC_FILES})
+
+# TARGET
+add_executable(main_binary main_binary.cpp
+    src/test.cpp
+    src/test2.cpp
+)
+
+target_compile_features(main_binary PRIVATE cxx_std_17)
+target_include_directories(main_binary PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)

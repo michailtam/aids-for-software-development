@@ -1,0 +1,79 @@
+-------
+General
+-------
+(1) Lists all running containers
+$ docker ps -a
+
+(2) Runs a container in interactive mode and providing access to the terminal
+$ docker run -it --name <custom_container_name>
+
+(3) Changing the Image Installation Directory
+Source: https://www.guguweb.com/2019/02/07/how-to-move-docker-data-directory-to-another-location-on-ubuntu/
+Source: https://www.baeldung.com/ops/docker-image-change-installation-directory
+$ docker info -f '{{ .DockerRootDir }}'
+$ mkdir -p /tmp/new-docker-root
+$ sudo vi /etc/docker/daemon.json
+$ sudo cat /etc/docker/daemon.json
+{ 
+   "data-root": "/tmp/new-docker-root"
+}
+$ sudo systemctl restart docker
+$ docker info -f '{{ .DockerRootDir}}'
+
+(4) Docker Cheat Sheet – Most Important Docker Commands
+https://www.geeksforgeeks.org/docker-cheat-sheet/
+
+(5) How to run an existing container again
+docker start  `docker ps -q -l` # restart it in the background
+docker attach `docker ps -q -l` # reattach the terminal & stdin
+
+
+-----------------------------------------------
+Docker Compose (similar to launch files in ROS)
+-----------------------------------------------
+(1) How to specify a docker compose file. IMPORTANT: The extension has to be .yml e.g. docker-compose.yml
+Source: https://docs.docker.com/compose/
+Example of a docker-compose.yml-file
+
+version: "<version>"   // Prefer to use the latest version found on the docker page.
+services:
+  <custom_service_name>:   
+    image: <image_name>
+    ports:
+      - <host_port>:<container_port>
+    volumes:
+      - <custom_volume_name1>:<container_directory_path1>
+      - <custom_volume_name2>:<container_directory_path2>
+volumes:
+    <custom_volume_name1>
+    <custom_volume_name2>
+    ...
+
+(2) Build an image via docker compose file
+$ docker-compose build --no-cache
+
+(3) How to execute a docker compose yml file
+$ docker-compose -f <yaml_name>.yml
+
+(4) Start the image builded with docker compose
+$ docker-compose up
+Can be combined with build as follows:
+$ docker-compose up --build
+
+
+--------------
+Docker Volumes
+--------------
+(1) Differnet kinds of mounting volumes
+Source: https://www.youtube.com/watch?v=p2PH_YPCsis
+- Host volume: $ docker run -v <host_directory_path>:<container_directory_path>
+- Anonymous volume: $ docker run -v <container_directory_path>  // Here the host directory is located in the data directory
+usually: /var/lib/docker/volumes/random_hash/_data
+- Named volume: $ docker run -v <custom_name>:<host_directory_path>
+
+
+----------
+Dockerfile
+----------
+Source: https://docs.docker.com/engine/reference/builder/
+Create a file named Dockerfile (Note: in VS Code the dockerfile gets automatically identified)
