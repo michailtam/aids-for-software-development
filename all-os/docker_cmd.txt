@@ -1,6 +1,9 @@
 -------
 General
 -------
+Tutorials:
+Source: https://www.youtube.com/watch?v=3c-iBn73dDE&t=752s
+
 (1) Lists all running containers
 $ docker ps -a
 
@@ -21,12 +24,21 @@ $ sudo systemctl restart docker
 $ docker info -f '{{ .DockerRootDir}}'
 
 (4) Docker Cheat Sheet – Most Important Docker Commands
-https://www.geeksforgeeks.org/docker-cheat-sheet/
+Source: https://www.geeksforgeeks.org/docker-cheat-sheet/
 
 (5) How to run an existing container again
 docker start  `docker ps -q -l` # restart it in the background
 docker attach `docker ps -q -l` # reattach the terminal & stdin
 
+(6) How to delete all local docker images?
+Source: https://stackoverflow.com/questions/44785585/how-can-i-delete-all-local-docker-images
+Delete all containers and volumes: $ docker rm -vf $(docker ps -aq)
+Delete all images: $ docker rmi -f $(docker images -aq)
+
+(7) How to clean-up complete after deleting all images
+Source: https://stackoverflow.com/questions/64068185/docker-image-taking-up-space-after-deletion
+$ docker system prune -a
+$ docker volume rm $(docker volume ls -q -f dangling=true)
 
 -----------------------------------------------
 Docker Compose (similar to launch files in ROS)

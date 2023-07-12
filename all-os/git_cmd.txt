@@ -179,3 +179,11 @@ Rename the current branch to main: git branch -m main
 Force update repo: git push -f origin main
 
 PS: this will not keep your old commit history around
+
+(24) How to copy the content of a branch to another one?
+git checkout -b branch_to branch_from
+
+
+
+
+
