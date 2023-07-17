@@ -131,6 +131,9 @@ git branch -m master default (from master to default)
 (18) Delete a branch (not set to default)
 git push origin --delete master (deletes the remote master branch)
 
+(18.2) Delete a local branch 
+git branch --delete <branchname> or git branch -D <branchname> (if not merged before)
+
 (19) Clone from a specific branch
 git clone -b <branch-name> git url
 Example: git clone -b kinetic-devel https://github.com/introlab/rtabmap_ros.git

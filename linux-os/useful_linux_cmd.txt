@@ -46,3 +46,8 @@ $ zip -r -s 5m myfiles.zip example-dir/
 $ zip -F myfiles.zip --out single-archive.zip
 unzip single-archive.zip
 
+
+(7) How to delete snaps cache (does not break the system)
+https://unix.stackexchange.com/questions/590319/is-it-safe-to-delete-these-snaps
+$ sudo apt purge snapd
+

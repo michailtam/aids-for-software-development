@@ -40,6 +40,9 @@ Source: https://stackoverflow.com/questions/64068185/docker-image-taking-up-spac
 $ docker system prune -a
 $ docker volume rm $(docker volume ls -q -f dangling=true)
 
+(8) How to execute a command in a running container with bash prompt
+$ docker exec -it <container_name> bash
+
 -----------------------------------------------
 Docker Compose (similar to launch files in ROS)
 -----------------------------------------------
