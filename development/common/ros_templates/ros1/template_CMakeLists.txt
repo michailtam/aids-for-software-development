@@ -1,0 +1,40 @@
+cmake_minimum_required(VERSION 3.0.2)
+project(robot_name_pkg)
+
+find_package(catkin REQUIRED COMPONENTS
+  ### REQUIRED FOR CUSTOM MESSAGES
+  message_generation 
+)
+
+### REQUIRED FOR CUSTOM HEADER FILES
+include_directories(
+# include
+  ${catkin_INCLUDE_DIRS}
+)
+
+### REQUIRED FOR EXECUTABLES
+add_executable(executable_name src/executable.cpp)
+add_dependencies(executable_name executable_dependency_file) # Only needed if the executable needs dependency
+target_link_libraries(executable_name ${catkin_LIBRARIES})
+
+### REQUIRED FOR CUSTOM MESSAGES
+# Generate messages in the 'msg' folder
+add_message_files( 
+  FILES
+  CustomMessage.msg
+)
+
+### REQUIRED FOR CUSTOM SERVICES
+add_service_files( 
+  FILES
+  CustomService.srv
+)
+
+### REQUIRED FOR CUSTOM MESSAGES
+# Generate added messages and services with any dependencies listed here
+generate_messages()
+
+catkin_package(
+  CATKIN_DEPENDS message_runtime    
+)
+

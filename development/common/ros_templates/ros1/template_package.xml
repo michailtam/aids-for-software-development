@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>robot_name_pkg</name>
+  <version>0.0.0</version>
+  <description>Package for your custom robot</description>
+  <maintainer email="ed@todo.todo">ed</maintainer>
+  <license>License declaration</license>
+
+  ...
+
+  <!-- ### REQUIRED FOR CUSTOM MESSAGES -->
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>message_generation</build_depend>
+  <exec_depend>message_runtime</exec_depend>
+
+   <!-- ### REQUIRED FOR CUSTOM MESSAGES END -->
+
+  ...
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+
+  </export>
+</package>

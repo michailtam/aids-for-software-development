@@ -1,4 +1,0 @@
-# Finding the folders where the openjdk versions are installed
-update-java-alternatives --list
-
-
