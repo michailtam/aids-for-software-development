@@ -1,2 +1,2 @@
 # Collections for computer science and software development tasks
-This repository consists of collections for different computer science and software development tasks, which have been accumulated in my daily work in the computer sciece field. Among other things, there are collections for different editors, operating systems and application settings.
+This repository consists of collections for different computer science and software development tasks, which have been accumulated in my daily work in the computer sciece field. Among other things, there are collections for different editors, operating systems and application settings. All files will be adjusted over time accordingly due to work on various projects.

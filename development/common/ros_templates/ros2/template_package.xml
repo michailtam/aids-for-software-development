@@ -7,6 +7,10 @@
   <maintainer email="ed@todo.todo">ed</maintainer>
   <license>License declaration</license>
 
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <exec_depend>package_needed_at_execution_time</exec_depend>
+
   ...
 
   <!-- IMPORTANT PART FOR MESSAGES -->

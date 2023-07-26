@@ -1,0 +1,9 @@
+<launch>
+
+    <param name = "parameter_name" type="parameter_type" value="parameter_value" />
+    ...
+
+    <node name="node_name" pkg="package_name" type="" output="screen" />
+    ...
+
+</launch>

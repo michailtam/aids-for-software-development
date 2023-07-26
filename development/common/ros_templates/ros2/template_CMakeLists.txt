@@ -28,6 +28,12 @@ install(TARGETS
   DESTINATION lib/${PROJECT_NAME}/
 )
 
+# Required to install all the folders
+install(DIRECTORY
+  launch urdf other_folders
+  DESTINATION share/${PROJECT_NAME}/
+)
+
 ### REQUIRED FOR CUSTOM INTERFACES
 rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/CustomMessage.srv"
