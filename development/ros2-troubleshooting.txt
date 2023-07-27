@@ -1,0 +1,29 @@
+NOTE: This is a collection of troubleshootings, that provides possible solutions for issues I am facing, while working on ROS2 projects, in Gazebo and RViz. 
+It's not sure if the respective solution will work for your problem. Please, keep this in mind. This guide will be extended over time. Most of the solutions
+were found via stackoverflow, ROS Answers, Gazebo Answers, communites for robotics and many others.
+
+
+(1) Spawning the robot in Gazebo or/and RViz does not work
+-------------------------------------------------------
+Try:
+* Convert the file to urdf if it is a xacro file via $ xacro <file_name>.xacro > <file_name>.xacro.urdf   # Note: .xacro.urdf illustrates that the original file was of type xacro
+* Check the urdf file via $ check_urdf <file_name>.urdf.
+* Check the urdf structure visually via $ urdf_to_graphiz <file_name>.urdf
+* Check if the model and plugin path for Gazebo is set. If not add the lines bellow at the end of the .bashrc file or in code.
+
+  export GAZEBO_MODEL_PATH=/usr/share/gazebo-11/models
+  export GAZEBO_PLUGIN_PATH=/usr/lib/x86_64-linux-gnu/gazebo-11/plugins
+* Check if the model path is set in the package.xml file at the end before the closing </package> tag:
+
+<export>
+    <build_type>ament_cmake</build_type>
+    <gazebo_ros gazebo_model_path="<path_to_your_ws>/install/<robot_name>_description/share"/>
+</export>
+
+OR
+
+<export>
+    <build_type>ament_cmake</build_type>
+    gazebo_plugin_path="${prefix}/lib" gazebo_model_path="${prefix}/.." />
+</export>
+
