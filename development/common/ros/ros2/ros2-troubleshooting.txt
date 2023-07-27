@@ -4,7 +4,7 @@ were found via stackoverflow, ROS Answers, Gazebo Answers, communites for roboti
 
 
 (1) Spawning the robot in Gazebo or/and RViz does not work
--------------------------------------------------------
+----------------------------------------------------------
 Try:
 * Convert the file to urdf if it is a xacro file via $ xacro <file_name>.xacro > <file_name>.xacro.urdf   # Note: .xacro.urdf illustrates that the original file was of type xacro
 * Check the urdf file via $ check_urdf <file_name>.urdf.
@@ -26,4 +26,6 @@ OR
     <build_type>ament_cmake</build_type>
     gazebo_plugin_path="${prefix}/lib" gazebo_model_path="${prefix}/.." />
 </export>
+
+* Copy your robot_description package to the gazebos model folder /usr/share/gazebo-11/models/
 
