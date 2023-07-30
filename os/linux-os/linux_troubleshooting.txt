@@ -1,0 +1,16 @@
+(1) If you encounter any dependency issues
+------------------------------------------
+issue $ apt-get dist-upgrade
+This does the following:
+- Upgrades installed packages to their latest available versions, just like apt-get upgrade
+- Handles dependencies more aggressively. It may remove or install additional packages if required 
+  to resolve conflicts and ensure a smooth upgrade process. This can include installing new packages, 
+  removing obsolete ones, or updating packages that were held back during a regular upgrade.
+NOTE:
+It's important to note that while apt-get dist-upgrade can upgrade your system to the latest version, it will not upgrade 
+the distribution itself to a newer release series (e.g., from Ubuntu 20.04 to 22.04). For a distribution upgrade, you typically 
+need to use a different tool, such as do-release-upgrade in Ubuntu.
+
+Before using any upgrade command, it's advisable to create a backup of your important data and configurations to avoid data 
+loss or system instability. Additionally, ensure you have a good understanding of the changes the upgrade will make to your 
+system, as there could be significant changes between release versions.

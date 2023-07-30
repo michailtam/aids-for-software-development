@@ -32,8 +32,8 @@ docker attach `docker ps -q -l` # reattach the terminal & stdin
 
 (6) How to delete all local docker images?
 Source: https://stackoverflow.com/questions/44785585/how-can-i-delete-all-local-docker-images
-Delete all containers and volumes: $ docker rm -vf $(docker ps -aq)
-Delete all images: $ docker rmi -f $(docker images -aq)
+Deletes all containers and volumes: $ docker rm -vf $(docker ps -aq)
+Deletes all images: $ docker rmi -f $(docker images -aq)
 
 (7) How to clean-up complete after deleting all images
 Source: https://stackoverflow.com/questions/64068185/docker-image-taking-up-space-after-deletion
@@ -79,7 +79,7 @@ $ docker-compose up --build
 --------------
 Docker Volumes
 --------------
-(1) Differnet kinds of mounting volumes
+(1) Different kinds of mounting volumes
 Source: https://www.youtube.com/watch?v=p2PH_YPCsis
 - Host volume: $ docker run -v <host_directory_path>:<container_directory_path>
 - Anonymous volume: $ docker run -v <container_directory_path>  // Here the host directory is located in the data directory
