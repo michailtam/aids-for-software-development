@@ -140,6 +140,7 @@ Example: git clone -b kinetic-devel https://github.com/introlab/rtabmap_ros.git
 
 (20) How to fix “modified content, untracked content”
 a) git rm -rf --cached myuntrackedfolder (This tells git to forget about it since it was being tracked formally).
+b) git add myuntrackedfolder 
 
 NOTE FOR GITHUB - Using Tokens
 https://www.youtube.com/watch?v=kHkQnuYzwoo
