@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="test_robot">
+
+    <!-- Includes all the required xacro files -->
+    <xacro:include filename="./properties.xacro"/>
+    <xacro:include filename="./wheels.xacro"/>
+    <xacro:include filename="./body.xacro"/>
+    <!-- <xacro:include filename="gazebo_control.xacro"/> -->
+
+    <!-- Base -->
+    <link name="base_link"/>
+
+    <!-- Bottom Platform -->
+    <xacro:platform name="bottom_platform" radius="0.3" shape="cylinder" size_z="0.025" xyz="0 0 0.03" joint_type="fixed" parent="base" color="dark_blue" 
+        mass="9.89601685880785" ixx="0.2231757968679062" iyy="0.2231757968679062" izz="0.4453207586463532"/>
+ 
+    <!-- Wheels/Caster Wheels -->
+    <xacro:wheel name="left" type="normal" xyz="0.0 0.31 0.03" rpy="${radians(90)} 0 0" parent="bottom_platform" 
+        mass="${wheel_mass}" ixx="0.00029556103684972776" iyy="0.00029556103684972776" izz="0.0005700105710673321"/>
+    <xacro:wheel name="right" type="normal" xyz="0.0 -0.31 0.03" rpy="${radians(90)} 0 0" parent="bottom_platform" 
+        mass="${wheel_mass}" ixx="0.00029556103684972776" iyy="0.00029556103684972776" izz="0.0005700105710673321"/>
+    <xacro:wheel name="caster_front" type="caster" radius="0.035" xyz="0.24 0 0" rpy="0 0 0" parent="bottom_platform" color="light_green"
+        mass="0.25143213204230314" ixx="0.00012320174470072855" iyy="0.00012320174470072855" izz="0.00012320174470072855"/>
+    <xacro:wheel name="caster_back" type="caster" radius="0.035" xyz="-0.24 0 0" rpy="0 0 0" parent="bottom_platform" color="light_green"
+        mass="0.25143213204230314" ixx="0.00012320174470072855" iyy="0.00012320174470072855" izz="0.00012320174470072855"/>
+
+</robot>

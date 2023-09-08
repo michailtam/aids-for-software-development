@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- Platform MACRO -->
+    <xacro:macro name="platform" params="name shape radius=0.2 size_x=0 size_y=0 size_z=0 xyz joint_type=fixed parent color
+        mass=0.0 ixx=0 iyy=0 izz=0">
+        
+            <link name="${name}_link">
+                <visual>
+                    <origin rpy="0 0 0" xyz="${xyz}"/>
+                    <xacro:if value="${shape == 'cylinder'}">
+                        <geometry>
+                            <cylinder radius="${radius}" length="${size_z}"/>
+                        </geometry>
+                    </xacro:if>
+                    <xacro:if value="${shape == 'box'}">
+                        <geometry>
+                            <box size="${size_x} ${size_y} ${size_z}"/>
+                        </geometry>
+                    </xacro:if>
+                    <material name="${color}"/>
+                </visual>
+
+                <collision>
+                    <origin rpy="0 0 0" xyz="${xyz}"/>
+                    <xacro:if value="${shape == 'cylinder'}">
+                        <geometry>
+                            <cylinder radius="${radius}" length="${size_z}"/>
+                        </geometry>
+                    </xacro:if>
+                    <xacro:if value="${shape == 'box'}">
+                        <geometry>
+                            <box size="${size_x} ${size_y} ${size_z}"/>
+                        </geometry>
+                    </xacro:if>
+                </collision>
+
+                <inertial>
+                    <origin rpy="0 0 0" xyz="${xyz}"/>    
+                    <mass value="${mass}"/>
+                    <inertia ixx="${ixx}" ixy="0" ixz="0" iyy="${iyy}" iyz="0" izz="${izz}"/>   
+                </inertial>
+                
+            </link>
+
+            <gazebo reference="${name}_link">
+                <material>${gazebo_blue}</material>
+            </gazebo>
+
+            <joint name="${name}_joint" type="fixed">
+                <parent link="${parent}_link"/>
+                <child link="${name}_link"/>
+            </joint>
+
+            <xacro:if value="${joint_type == 'continuous'}">
+                <!-- Gazebo Physics -->
+                <gazebo reference="${name}_link">
+                    <kp>1000000000000000000000000000.0</kp>
+                    <kd>1000000000000000000000000000.0</kd>
+                    <mu1>0.5</mu1>
+                    <mu2>0.5</mu2>
+                    <material>${gazebo_zinc_yellow}</material>
+                </gazebo>
+
+                <joint name="${name}_joint" type="continuous">    
+                    <parent link="${parent}_link"/>
+                    <child link="${name}_link"/>
+                    <axis rpy="0 0 0" xyz="0 0 1"/>
+                </joint>
+            </xacro:if>
+
+    </xacro:macro>
+
+</robot>
