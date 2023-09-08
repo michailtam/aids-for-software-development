@@ -15,17 +15,15 @@ Try:
   export GAZEBO_PLUGIN_PATH=/usr/lib/x86_64-linux-gnu/gazebo-11/plugins
 * Check if the model path is set in the package.xml file at the end before the closing </package> tag:
 
+IMPORTANT: The following has to be added at the end of the package.xml of the <robot_name>_description package.
+The above is very important, otherwise the robot doesn't get spawned in Gazebo.
+...
 <export>
-    <build_type>ament_cmake</build_type>
-    <gazebo_ros gazebo_model_path="<path_to_your_ws>/install/<robot_name>_description/share"/>
+  <build_type>ament_cmake</build_type>
+  <!-- 
+    NOTE: The following line is necessary so Gazebo is able to find the models. 
+    Otherwise, the robot gets not displayed (you can observe this, because Gazebo loads slower). 
+  -->
+  <gazebo_ros gazebo_model_path="${prefix}/.." /> 
 </export>
-
-OR
-
-<export>
-    <build_type>ament_cmake</build_type>
-    gazebo_plugin_path="${prefix}/lib" gazebo_model_path="${prefix}/.." />
-</export>
-
-* Copy your robot_description package to the gazebos model folder /usr/share/gazebo-11/models/
 
