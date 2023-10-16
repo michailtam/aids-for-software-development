@@ -1,14 +1,5 @@
-#include "rclcpp/rclcpp.hpp"
+#include "my_ros2_cpp_pkg/my_custom_node.hpp"
 
-class MyCustomNode : public rclcpp::Node
-{
-public:
-    MyCustomNode() : Node("node_name")
-    {
-    }
-
-private:
-};
 
 int main(int argc, char **argv)
 {

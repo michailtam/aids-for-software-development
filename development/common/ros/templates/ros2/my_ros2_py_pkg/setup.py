@@ -1,11 +1,11 @@
-from setuptools import setup
+from setuptools import find_packages, setup
 
-package_name = 'package_name'
+package_name = 'my_ros2_py_pkg'
 
 setup(
     name=package_name,
     version='0.0.0',
-    packages=[package_name],
+    packages=find_packages(exclude=['test']),
     data_files=[
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
@@ -13,15 +13,14 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='ed',
-    maintainer_email='ed@todo.todo',
+    maintainer='name',
+    maintainer_email='m@m.com',
     description='TODO: Package description',
     license='TODO: License declaration',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            "node_name = package_name.py_file_name:function_to_launch"
-            # EXAMPLE: "number_counter = ros2_app_py.number_counter:main"
+            "node_name = my_ros2_py_pkg.my_custom_node:main",
         ],
     },
 )

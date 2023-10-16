@@ -6,6 +6,7 @@ from rclpy.node import Node
 class MyCustomNode(Node):
     def __init__(self):
         super().__init__("node_name")
+        print("This the node <node_name>")
 
 
 def main(args=None):

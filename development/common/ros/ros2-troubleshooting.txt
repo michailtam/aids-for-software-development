@@ -27,3 +27,37 @@ The above is very important, otherwise the robot doesn't get spawned in Gazebo.
   <gazebo_ros gazebo_model_path="${prefix}/.." /> 
 </export>
 
+
+(2) Gazebo 11 does not run
+---------------------------------------------------------------------------
+SOURCE: https://stackoverflow.com/questions/67302265/gazebo-11-does-not-run
+
+1. First remove and purge all the libdart packages.
+$ sudo apt remove --purge libdart*
+If you have added dartsim/ppa ppa from this link, remove it from Software & Updates -> Other Software
+
+2. Update
+$ sudo apt update
+
+3. Check if libdart-dev installs with:
+$ sudo apt install libdart-dev
+
+4. If it installs, then install all the packages required for Gazebo
+$ sudo apt install libdart-all-dev
+
+6. If there is an error related to unable to fetch some archives, try:
+$ sudo apt update --fix-missing
+$ sudo apt install libdart-all-dev
+
+7. Install Gazebo again with:
+$ curl -sSL http://get.gazebosim.org | sh
+
+8. Check if Gazebo is now working
+gazebo
+
+
+
+
+
+
+
