@@ -187,7 +187,25 @@ PS: this will not keep your old commit history around
 (24) How to copy the content of a branch to another one?
 git checkout -b branch_to branch_from
 
+(24) GitHub folders have a white arrow on them
+https://stackoverflow.com/questions/62056294/github-folders-have-a-white-arrow-on-them
+Solution (to remove the white arrow)
+In order to restore that folder content:
 
+submodule:
+A git clone --recurse-submodules would restore the content of that submodule in your local repository (as opposed to a nested Git repo, where its URL is not recorded, and the content of the folder would remain empty)
 
+The white arrow would remain on the remote repository, with folder @ version displaying what SHA1 of the submodule repository is referenced by your project.
+
+Nested Git repository:
+Alternatively, you could, if you don't care about the history of that folder, delete locally its .git subfolder (assuming it is not a submodule, meaning it is not referenced in a .gitmodules file in your main repository), add, commit and push.
+The white arrow would then disappear, and you would be able to access that folder content on GitHub.
+
+Then you would need to delete the gitlink entry:
+
+git rm --cache client_folder 
+# without a trailing slash: 
+# not client_folder/ but client_folder
+Finally, you can add, commit and push that folder content.
 
 
