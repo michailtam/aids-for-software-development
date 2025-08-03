@@ -51,3 +51,10 @@ unzip single-archive.zip
 https://unix.stackexchange.com/questions/590319/is-it-safe-to-delete-these-snaps
 $ sudo apt purge snapd
 
+
+(8) Given two directory trees how to find which files are the same
+Source: https://stackoverflow.com/questions/10087571/given-two-directory-trees-how-to-find-which-files-are-the-same
+diff -srq dir1/ dir2/ | grep identical
+-s  --report-identical-files  Report when two files are the same.
+-r  --recursive  Recursively compare any subdirectories found.
+-q  --brief  Output only whether files differ.

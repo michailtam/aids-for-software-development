@@ -187,7 +187,7 @@ PS: this will not keep your old commit history around
 (24) How to copy the content of a branch to another one?
 git checkout -b branch_to branch_from
 
-(24) GitHub folders have a white arrow on them
+(25) GitHub folders have a white arrow on them
 https://stackoverflow.com/questions/62056294/github-folders-have-a-white-arrow-on-them
 Solution (to remove the white arrow)
 In order to restore that folder content:
@@ -207,5 +207,19 @@ git rm --cache client_folder
 # without a trailing slash: 
 # not client_folder/ but client_folder
 Finally, you can add, commit and push that folder content.
+
+
+(26) How to check the file sizes before git add
+https://github.com/jtloong/git-status-size?tab=readme-ov-file
+1. git clone https://github.com/jtloong/git-status-size
+2- cd git-status-size
+3. To invoke it anywhere you'll need to export the file into your PATH. In your script file use export PATH="/path/to/your-script/directory:$PATH
+4. Make it into an executable with sudo chmod +x git-status-size
+
+NOTE: If you don't know your git PATH you can check with type git.
+
+Now it should work! Go to the terminal in any repo, call git status-size, and you should recieve an output like the one in the gif above. If you have any files over Github's 100 mb limit, you will be prompted if you want to add these files to your .gitignore.
+
+
 
 

@@ -1,5 +1,0 @@
-Package organization
---------------------
-
-It is recommended for custom messages, services and actions to create a seperate package for example:
-$ ros2 pkg create my_interfaces and then add the folders msg, srv and action.
